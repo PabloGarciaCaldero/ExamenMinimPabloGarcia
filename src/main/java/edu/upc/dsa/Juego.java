@@ -2,32 +2,16 @@ package edu.upc.dsa;
 
 public class Juego {
 
-    private String juegoId;
-    private String Descripcion;
-    private String NombreJuego;
-    private int numNivel;
+    String NombreJuego;
+    String Descripcion;
+    Integer numNvls;
 
-    public Juego (String juegoId, String Descripcion, int NombreJuego){
-        this.juegoId=juegoId;
+
+    public Juego (String NombreJuego, String Descripcion, Integer numNvls){
+        this.NombreJuego=NombreJuego;
         this.Descripcion=Descripcion;
         this.NombreJuego=NombreJuego;
-        this.numNivel=numNivel;
-    }
-
-    public String getJuegoId() {
-        return juegoId;
-    }
-
-    public void setJuegoId(String juegoId) {
-        this.juegoId = juegoId;
-    }
-
-    public String getDescripcion() {
-        return Descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        Descripcion = descripcion;
+        this.numNvls=numNvls;
     }
 
     public String getNombreJuego() {
@@ -38,11 +22,21 @@ public class Juego {
         NombreJuego = nombreJuego;
     }
 
-    public int getNumNivel() {
-        return numNivel;
+    public String getDescripcion() {
+        return Descripcion;
     }
 
-    public void setNumNivel(int numNivel) {
-        this.numNivel = numNivel;
+    public void setDescripcion(String descripcion) {
+        Descripcion = descripcion;
     }
+
+    public Integer getNumNvls() {
+        return numNvls;
+    }
+
+    public void setNumNvls(Integer numNvls) {
+        this.numNvls = numNvls;
+    }
+
+
 }

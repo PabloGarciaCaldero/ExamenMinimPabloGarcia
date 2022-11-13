@@ -1,26 +1,30 @@
 package edu.upc.dsa;
+import edu.upc.dsa.Excepciones.JuegoNoExisteException;
+import edu.upc.dsa.Excepciones.UsuarioNoEstaJugandoException;
+import edu.upc.dsa.Excepciones.UsuarioNoExisteException;
+import edu.upc.dsa.Excepciones.UsuarioYaJugandoException;
 import edu.upc.dsa.Usuario;
+import io.swagger.models.auth.In;
 
 
 import java.util.List;
 
 public interface JuegoManager {
 
-
+    public Juego CrearJuego (String idJuego, String Descripcion, Integer numero);
+    public Partida IniciarPartida(String idJuego, String idUsuario) throws JuegoNoExisteException, UsuarioYaJugandoException;
+    public String getnvlActual(String idUsuario) throws UsuarioNoExisteException, UsuarioNoEstaJugandoException;
+    public String getPuntuacionActual(String idUsuario) throws UsuarioNoExisteException, UsuarioNoEstaJugandoException;
+    public Usuario SiguienteNvl(String idUsuario, Integer masPuntos, String data) throws UsuarioNoExisteException, UsuarioNoEstaJugandoException, JuegoNoExisteException;
+    public Usuario FinPartida(String idUsuario) throws UsuarioNoExisteException, UsuarioNoEstaJugandoException;
+    public List<Usuario> OrdenUsuarios(Juego juego) throws JuegoNoExisteException;
+    public List<Partida> getPartidasUsuario(String NombreUsuario) throws UsuarioNoExisteException;
+    public List<Rendimiento> getRendimiento(String idJuego, String idUsuario) throws JuegoNoExisteException, UsuarioNoExisteException;
+    public Juego getJuego(String NombreJuego) throws JuegoNoExisteException;
+    public Usuario getUsuario(String username) throws UsuarioNoExisteException;
+    public Partida getPartida (String idJuego, String idUsuario) throws JuegoNoExisteException, UsuarioNoExisteException;
+    public List<Partida> getPartidas (String idJuego, String idUsuario) throws JuegoNoExisteException, UsuarioNoExisteException;
+    public Partida getPartidaActual (String Usuario) throws UsuarioNoExisteException, UsuarioNoEstaJugandoException;
     public int size();
 
-    public List<Usuario> getUsers();
-
-    public Usuario Usuario(String UsuarioId);
-    public Juego Juego (String juegoId, String Descripcion, int numNiveles);
-
-    public void CreacionJuego (String juegoId, String NombreJuego, String UsuarioId, String Descripcion, int numNiveles);
-
-    public void InicioPartida (String Nombre, String juegoId, String UsuarioId, int puntos, boolean encurso) throws UsuarioNoExisteException, JuegoNoExisteException, PartidaYaCreadaException;
-
-    public int numNivel () throws UsuarioNoExisteException, PartidaHayPartidaEnCursoException, NoHayPartidaEnCursoException;
-
-    void CreacionJuego(String s, String proba1, String usu1, String primer_juego);
-
-    void InicioPartida(String partida1, String proba1, String usu1, int i);
 }

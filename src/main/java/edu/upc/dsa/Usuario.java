@@ -1,40 +1,56 @@
 package edu.upc.dsa;
 
+import java.util.HashMap;
+
 public class Usuario {
 
-    private String Nombre;
-    private String UsuarioId;
+    String Usuario;
 
-    private String puntuacion;
+    Boolean UsuarioJugando;
+
+    HashMap<String, Partida>partidasJugadas;
 
 
-    public String getPuntuacion() {
-        return puntuacion;
+    public Usuario (String Usuario){
+        this.setUsuario(Usuario);
+        this.setUsuarioJugando(false);
+        this.setPartidasJugadas();
     }
 
-    public void setPuntuacion(String puntuacion) {
-        this.puntuacion = puntuacion;
+
+
+    public String getUsuario() {
+        return Usuario;
     }
 
-    public Usuario (String Nombre, String UsuarioId, int puntos){
-            this.Nombre = Nombre;
-            this.UsuarioId = IdsRandom.getId();
-            this.puntuacion= puntuacion;
-        }
-
-    public String getNombre() {
-        return Nombre;
+    public void setUsuario(String usuario) {
+        Usuario = usuario;
     }
 
-    public void setNombre(String nombre) {
-        Nombre = nombre;
+    public Boolean getUsuarioJugando() {
+        return UsuarioJugando;
     }
 
-    public String getUsuarioId() {
-        return UsuarioId;
+    public void setUsuarioJugando(Boolean usuarioJugando) {
+        UsuarioJugando = usuarioJugando;
     }
 
-    public void setUsuarioId(String usuarioId) {
-        UsuarioId = usuarioId;
+    public HashMap<String, Partida> getPartidasJugadas() {
+        return partidasJugadas;
     }
+
+    public void setPartidasJugadas() {
+        this.partidasJugadas = partidasJugadas;
+    }
+
+public void añadirPartida(Partida partida){
+    this.partidasJugadas.put(partida.getIdPartida(), partida);
+    this.setUsuarioJugando(true);
+}
+
+
+
+
+
+
 }
